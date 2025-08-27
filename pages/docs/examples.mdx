@@ -7,6 +7,12 @@ This page provides various examples and use cases for the `AIDropDown` component
 ### Simple Text Enhancement
 
 The most basic usage with default settings:
+<iframe src="https://codesandbox.io/embed/slt76x?view=preview&module=%2Fsrc%2FApp.js&hidenavigation=1"
+     style={{ width: '100%', height: '400px', border: 'none', borderRadius: '8px' }}
+     title="prompt-my-client-simple"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
 
 ```tsx
 import { AIDropDown } from 'prompt-my-client-react';
@@ -21,17 +27,37 @@ function SimpleExample() {
   };
 
   return (
-    <div>
-      <textarea 
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Type your text here..."
-        style={{ width: '100%', minHeight: '100px' }}
-      />
-      <AIDropDown 
-        text={text} 
-        aiResponseCallback={handleAIResponse} 
-      />
+    <div 
+    style={{ 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      height: '100vh' }}>
+      <div style={{ position: 'relative', width: 700 }}>
+      <textarea
+          ref={textareaRef}
+          value={input}
+          onChange={ (e) => setInput(e.target.value)}
+          placeholder="Type here..."
+          rows={1}
+          style={{
+            width: '100%',
+            borderRadius: '30px',
+            padding: '12px 56px 12px 16px',
+            fontSize: '16px',
+            border: '1px solid #ccc',
+            outline: 'none',
+            boxSizing: 'border-box',
+            resize: 'none',
+            overflow: 'hidden',
+            lineHeight: '1.5',
+            maxHeight: '200px',
+          }}
+        />
+        <div style={{ position: 'absolute', top: '50%', right: 6, transform: 'translateY(-49%)' }}>
+          <AIDropDown text={input} aiResponseCallback={handleAIResponse} size='38px' />
+        </div>
+      </div>
     </div>
   );
 }
@@ -40,6 +66,16 @@ function SimpleExample() {
 ### Email Composition Assistant
 
 Enhance emails with professional tone and grammar correction:
+
+**Try it live:**
+
+<iframe 
+  src="https://codesandbox.io/embed/email-composer-demo?view=editor+%2B+preview&module=%2Fsrc%2FApp.js&hidenavigation=1"
+  style={{ width: '100%', height: '500px', border: 'none', borderRadius: '8px' }}
+  title="Email Composer Demo"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
 
 ```tsx
 import { AIDropDown } from 'prompt-my-client-react';
@@ -88,6 +124,16 @@ function EmailComposer() {
 ### Dark Theme Interface
 
 Custom styling for a dark-themed application:
+
+**Try it live:**
+
+<iframe 
+  src="https://codesandbox.io/embed/dark-theme-demo?view=editor+%2B+preview&module=%2Fsrc%2FApp.js&hidenavigation=1"
+  style={{ width: '100%', height: '500px', border: 'none', borderRadius: '8px' }}
+  title="Dark Theme Demo"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
 
 ```tsx
 import { AIDropDown } from 'prompt-my-client-react';
@@ -204,6 +250,16 @@ function MinimalistExample() {
 ### Custom Prompt Options
 
 Create your own specialized prompt options:
+
+**Try it live:**
+
+<iframe 
+  src="https://codesandbox.io/embed/custom-prompts-demo?view=editor+%2B+preview&module=%2Fsrc%2FApp.js&hidenavigation=1"
+  style={{ width: '100%', height: '600px', border: 'none', borderRadius: '8px' }}
+  title="Custom Prompts Demo"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
 
 ```tsx
 import { AIDropDown } from 'prompt-my-client-react';
@@ -397,6 +453,16 @@ function MobileExample() {
 
 Generate engaging social media content:
 
+**Try it live:**
+
+<iframe 
+  src="https://codesandbox.io/embed/social-media-demo?view=editor+%2B+preview&module=%2Fsrc%2FApp.js&hidenavigation=1"
+  style={{ width: '100%', height: '600px', border: 'none', borderRadius: '8px' }}
+  title="Social Media Demo"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
 ```tsx
 import { AIDropDown } from 'prompt-my-client-react';
 
@@ -474,6 +540,16 @@ function SocialMediaExample() {
 ### With Form Libraries
 
 Integrate with React Hook Form:
+
+**Try it live:**
+
+<iframe 
+  src="https://codesandbox.io/embed/form-integration-demo?view=editor+%2B+preview&module=%2Fsrc%2FApp.js&hidenavigation=1"
+  style={{ width: '100%', height: '600px', border: 'none', borderRadius: '8px' }}
+  title="Form Integration Demo"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
 
 ```tsx
 import { useForm, Controller } from 'react-hook-form';
