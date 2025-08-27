@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prompt My Client React - Documentation
 
-## Getting Started
+This is the official documentation website for the [Prompt My Client React](https://www.npmjs.com/package/prompt-my-client-react) package.
 
-First, run the development server:
+## 🚀 About
+
+Prompt My Client React is a React component library that provides an AI-powered dropdown interface for text enhancement and transformation. Perfect for applications that need AI assistance with text content.
+
+## 📚 Documentation
+
+This documentation site is built with [Nextra](https://nextra.site), a modern documentation framework built on top of Next.js.
+
+### Features
+
+- **🤖 AI-Powered Text Enhancement** - Transform text with various tones and styles
+- **🎨 Customizable UI** - Fully customizable dropdown and button styles
+- **📱 Responsive Design** - Works seamlessly across different screen sizes
+- **⚡ Easy Integration** - Simple drop-in component for React applications
+- **🎯 Pre-built Prompts** - Comes with common text transformation options
+- **🔧 Extensible** - Add your own custom prompt options
+
+## 🛠️ Development
+
+### Prerequisites
+
+- Node.js 16.8 or later
+- npm, yarn, or pnpm
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the documentation.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+### Start Production Server
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📖 Documentation Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Welcome** - Overview and quick start
+- **Getting Started** - Installation and basic setup
+- **API Reference** - Complete API documentation
+- **Examples** - Usage examples and patterns
+- **Customization** - Styling and theming guide
+- **FAQ** - Common questions and answers
 
-## Deploy on Vercel
+## 🔗 Links
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [NPM Package](https://www.npmjs.com/package/prompt-my-client-react)
+- [GitHub Repository](https://github.com/rajanlagah/prompt-my-client-react)
+- [Documentation Site](https://your-docs-domain.com) (deploy this site)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📞 Support
+
+If you encounter any issues or have questions, please open an issue on the GitHub repository.
+# docs
