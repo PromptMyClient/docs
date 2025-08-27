@@ -1,0 +1,70 @@
+# Welcome to Prompt My Client React
+
+A React component library that provides an AI-powered dropdown interface for text enhancement and transformation. Perfect for applications that need AI assistance with text content.
+
+## 🚀 Features
+
+- **🤖 AI-Powered Text Enhancement** - Transform text with various tones and styles
+- **🎨 Customizable UI** - Fully customizable dropdown and button styles
+- **📱 Responsive Design** - Works seamlessly across different screen sizes
+- **⚡ Easy Integration** - Simple drop-in component for React applications
+- **🎯 Pre-built Prompts** - Comes with common text transformation options
+- **🔧 Extensible** - Add your own custom prompt options
+
+## 📦 Installation
+
+```bash
+npm install prompt-my-client-react
+```
+
+or
+
+```bash
+yarn add prompt-my-client-react
+```
+
+## 🎯 Quick Start
+
+```tsx
+import { AIDropDown } from 'prompt-my-client-react';
+
+function App() {
+  const handleAIResponse = (response: string) => {
+    console.log("AI Response:", response);
+    // Handle the AI response here
+  };
+
+  return (
+    <div>
+      <textarea placeholder="Type your text here..." />
+      <AIDropDown 
+        text="Your text content" 
+        aiResponseCallback={handleAIResponse} 
+      />
+    </div>
+  );
+}
+```
+
+## 🔗 Links
+
+- [GitHub Repository](https://github.com/rajanlagah/prompt-my-client-react)
+- [NPM Package](https://www.npmjs.com/package/prompt-my-client-react)
+- [Examples](/docs/examples)
+- [API Reference](/docs/api)
+
+## 📋 Requirements
+
+- React 18 or higher
+- React DOM 18 or higher
+
+## 🌐 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 📄 License
+
+This project is licensed under the MIT License.

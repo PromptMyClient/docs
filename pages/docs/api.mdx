@@ -1,0 +1,255 @@
+# API Reference
+
+This page documents all the props, types, and configuration options available for the `AIDropDown` component.
+
+## Component: AIDropDown
+
+The main component that provides an AI-powered dropdown interface for text enhancement.
+
+```tsx
+import { AIDropDown } from 'prompt-my-client-react';
+
+<AIDropDown 
+  text="Your text content" 
+  aiResponseCallback={handleAIResponse} 
+  // ... other props
+/>
+```
+
+## Props
+
+### Required Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `text` | `string` | The text content to be processed by AI |
+| `aiResponseCallback` | `(response: string) => void` | Callback function to handle AI responses |
+
+### Optional Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `'38px' \| '48px' \| '52px'` | `'48px'` | Size of the AI button |
+| `promptOptions` | `PromptOption[]` | Built-in options | Custom prompt options |
+| `dropdownStyle` | `React.CSSProperties` | Default styles | Custom dropdown styling |
+| `optionStyle` | `React.CSSProperties` | Default styles | Custom option styling |
+| `optionHoverStyle` | `React.CSSProperties` | Default styles | Custom hover styling |
+| `buttonStyle` | `React.CSSProperties` | Default styles | Custom button styling |
+
+## Types
+
+### PromptOption
+
+```tsx
+type PromptOption = {
+  prompt: string;      // The actual prompt sent to AI
+  label: string;       // Display label in dropdown
+  tone?: string;       // Tone modifier (optional)
+  style?: string;      // Style modifier (optional)
+}
+```
+
+### Example PromptOption
+
+```tsx
+const customPrompt: PromptOption = {
+  prompt: 'Translate to Spanish',
+  label: 'Spanish',
+  tone: 'formal',
+  style: 'accurate'
+};
+```
+
+## Default Prompt Options
+
+The component comes with these pre-built prompt options:
+
+| Label | Description | Use Case |
+|-------|-------------|----------|
+| **Fix Grammar** | Corrects grammatical errors | Content editing, proofreading |
+| **Professional Tone** | Converts text to professional language | Business communications, formal writing |
+| **Make it Short** | Condenses text while maintaining meaning | Summaries, concise content |
+| **Make it Detailed** | Expands text with more information | Detailed explanations, comprehensive content |
+| **Conversational** | Makes text more casual and friendly | Social media, informal communication |
+| **Creative** | Adds creative flair to the content | Marketing copy, creative writing |
+| **Persuasive** | Makes text more convincing and compelling | Sales copy, persuasive writing |
+
+## Size Options
+
+The `size` prop accepts three predefined values:
+
+- `'38px'` - Small button, good for compact interfaces
+- `'48px'` - Medium button, default size
+- `'52px'` - Large button, good for prominent placement
+
+## Styling Props
+
+### dropdownStyle
+
+Customize the dropdown container appearance:
+
+```tsx
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  dropdownStyle={{
+    background: '#2c3e50',
+    color: 'white',
+    borderRadius: '12px',
+    boxShadow: '0 4px 20px rgba(0,0,0,0.3)'
+  }}
+/>
+```
+
+### optionStyle
+
+Customize individual dropdown options:
+
+```tsx
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  optionStyle={{
+    padding: '12px 16px',
+    fontSize: '14px',
+    borderBottom: '1px solid #eee'
+  }}
+/>
+```
+
+### optionHoverStyle
+
+Customize hover effects for options:
+
+```tsx
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  optionHoverStyle={{
+    background: '#34495e',
+    color: '#ecf0f1',
+    transform: 'translateX(4px)'
+  }}
+/>
+```
+
+### buttonStyle
+
+Customize the AI button appearance:
+
+```tsx
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: '#3498db',
+    border: 'none',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+    transition: 'all 0.3s ease'
+  }}
+/>
+```
+
+## Complete Example with All Props
+
+```tsx
+import { AIDropDown } from 'prompt-my-client-react';
+
+const customPrompts = [
+  {
+    prompt: 'Translate to French',
+    label: 'French',
+    tone: 'formal',
+    style: 'accurate'
+  },
+  {
+    prompt: 'Make it poetic',
+    label: 'Poetic',
+    tone: 'creative',
+    style: 'artistic'
+  }
+];
+
+function MyComponent() {
+  const handleAIResponse = (response: string) => {
+    console.log("AI Response:", response);
+  };
+
+  return (
+    <AIDropDown 
+      text="Your text content"
+      aiResponseCallback={handleAIResponse}
+      size="52px"
+      promptOptions={customPrompts}
+      dropdownStyle={{
+        background: '#1a1a1a',
+        color: 'white',
+        borderRadius: '8px',
+        border: '1px solid #333'
+      }}
+      optionStyle={{
+        padding: '12px 16px',
+        fontSize: '14px'
+      }}
+      optionHoverStyle={{
+        background: '#333',
+        color: '#fff'
+      }}
+      buttonStyle={{
+        background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)',
+        border: 'none',
+        borderRadius: '50%'
+      }}
+    />
+  );
+}
+```
+
+## Event Handling
+
+### aiResponseCallback
+
+The `aiResponseCallback` function is called whenever the AI returns a response:
+
+```tsx
+const handleAIResponse = (response: string) => {
+  if (response) {
+    // Update your component state
+    setText(response);
+    
+    // Log the response
+    console.log("AI Response:", response);
+    
+    // Show a notification
+    showNotification("Text enhanced successfully!");
+    
+    // Save to localStorage
+    localStorage.setItem('lastEnhancedText', response);
+  }
+};
+```
+
+## Error Handling
+
+The component handles errors gracefully:
+
+- If no text is provided, the AI button will be disabled
+- If the AI service is unavailable, an error message will be shown
+- Network errors are caught and displayed to the user
+
+## Performance Considerations
+
+- The component only re-renders when necessary props change
+- AI requests are debounced to prevent excessive API calls
+- The dropdown is rendered conditionally to improve performance
+- Large text inputs are handled efficiently
+
+## Accessibility
+
+The component includes:
+
+- Proper ARIA labels and roles
+- Keyboard navigation support
+- Screen reader compatibility
+- Focus management
+- High contrast support through custom styling

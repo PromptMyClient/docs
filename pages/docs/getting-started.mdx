@@ -1,0 +1,176 @@
+# Getting Started
+
+This guide will help you get up and running with Prompt My Client React in your project.
+
+## 📋 Prerequisites
+
+Before you begin, make sure you have:
+
+- Node.js 16.8 or later
+- A React project (version 18 or higher)
+- npm, yarn, or pnpm package manager
+
+## 🚀 Installation
+
+### Using npm
+
+```bash
+npm install prompt-my-client-react
+```
+
+### Using yarn
+
+```bash
+yarn add prompt-my-client-react
+```
+
+### Using pnpm
+
+```bash
+pnpm add prompt-my-client-react
+```
+
+## 🔧 Basic Setup
+
+### 1. Import the Component
+
+```tsx
+import { AIDropDown } from 'prompt-my-client-react';
+```
+
+### 2. Add to Your Component
+
+```tsx
+import React, { useState } from 'react';
+import { AIDropDown } from 'prompt-my-client-react';
+
+function MyComponent() {
+  const [text, setText] = useState('');
+
+  const handleAIResponse = (response: string) => {
+    if (response) {
+      setText(response);
+    }
+  };
+
+  return (
+    <div>
+      <textarea 
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Type your text here..."
+      />
+      <AIDropDown 
+        text={text} 
+        aiResponseCallback={handleAIResponse} 
+      />
+    </div>
+  );
+}
+```
+
+## 🎯 Complete Example
+
+Here's a complete working example with auto-resizing textarea:
+
+```tsx
+import React, { useState, useRef, useEffect } from 'react';
+import { AIDropDown } from 'prompt-my-client-react';
+
+function App() {
+  const [input, setInput] = useState('');
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  // Auto-resize textarea
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
+    }
+  }, [input]);
+
+  const handleAIResponse = (response: string) => {
+    if (response) {
+      setInput(response);
+    }
+    console.log("AI Response:", response);
+  };
+
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <div style={{ position: 'relative', width: 700 }}>
+        <textarea
+          ref={textareaRef}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Type here..."
+          rows={1}
+          style={{
+            width: '100%',
+            borderRadius: '30px',
+            padding: '12px 56px 12px 16px',
+            fontSize: '16px',
+            border: '1px solid #ccc',
+            outline: 'none',
+            boxSizing: 'border-box',
+            resize: 'none',
+            overflow: 'hidden',
+            lineHeight: '1.5',
+            maxHeight: '200px',
+          }}
+        />
+        <div style={{ position: 'absolute', top: '50%', right: 6, transform: 'translateY(-49%)' }}>
+          <AIDropDown 
+            text={input} 
+            aiResponseCallback={handleAIResponse} 
+            size='38px' 
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+## 🔍 What Happens Next?
+
+1. **User Types Text**: The user enters text in the textarea
+2. **AI Button Appears**: The AI dropdown button is positioned next to the text
+3. **User Clicks AI Button**: A dropdown menu appears with various text transformation options
+4. **AI Processes Request**: The selected prompt is sent to the AI service
+5. **Response Received**: The transformed text is returned via the callback function
+6. **UI Updates**: The textarea is automatically updated with the new content
+
+## 🎨 Customization
+
+The component is highly customizable. You can:
+
+- Change the button size
+- Customize colors and styles
+- Add your own prompt options
+- Modify the dropdown appearance
+
+See the [Customization](/docs/customization) guide for detailed examples.
+
+## 🚨 Common Issues
+
+### Component Not Rendering
+
+- Make sure you've imported the component correctly
+- Check that your React version is 18 or higher
+- Verify the package was installed successfully
+
+### AI Responses Not Working
+
+- Ensure the `text` prop contains the text you want to transform
+- Check that the `aiResponseCallback` function is properly defined
+- Verify your internet connection for AI service access
+
+## 📚 Next Steps
+
+- Learn about [Props and Configuration](/docs/api)
+- Explore [Customization Options](/docs/customization)
+- Check out [Examples](/docs/examples)
+- Read the [API Reference](/docs/api)

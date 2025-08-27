@@ -1,0 +1,477 @@
+# Customization
+
+This guide covers all the customization options available for the `AIDropDown` component, from basic styling to advanced theming.
+
+## 🎨 Basic Styling
+
+### Button Size
+
+The component supports three predefined button sizes:
+
+```tsx
+import { AIDropDown } from 'prompt-my-client-react';
+
+// Small button (38px) - Good for compact interfaces
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  size="38px"
+/>
+
+// Medium button (48px) - Default size
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  size="48px"
+/>
+
+// Large button (52px) - Good for prominent placement
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  size="52px"
+/>
+```
+
+### Color Schemes
+
+Create custom color schemes using the styling props:
+
+```tsx
+// Blue theme
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: '#007bff',
+    color: 'white'
+  }}
+  dropdownStyle={{
+    background: '#ffffff',
+    border: '1px solid #007bff'
+  }}
+  optionHoverStyle={{
+    background: '#e3f2fd',
+    color: '#007bff'
+  }}
+/>
+
+// Green theme
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: '#28a745',
+    color: 'white'
+  }}
+  dropdownStyle={{
+    background: '#ffffff',
+    border: '1px solid #28a745'
+  }}
+  optionHoverStyle={{
+    background: '#d4edda',
+    color: '#155724'
+  }}
+/>
+
+// Purple theme
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: '#6f42c1',
+    color: 'white'
+  }}
+  dropdownStyle={{
+    background: '#ffffff',
+    border: '1px solid #6f42c1'
+  }}
+  optionHoverStyle={{
+    background: '#e2d9f3',
+    color: '#6f42c1'
+  }}
+/>
+```
+
+## 🌈 Advanced Theming
+
+### Gradient Buttons
+
+Create eye-catching gradient buttons:
+
+```tsx
+// Blue to purple gradient
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    border: 'none',
+    boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)'
+  }}
+/>
+
+// Sunset gradient
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: 'linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb)',
+    border: 'none',
+    boxShadow: '0 4px 15px rgba(255, 107, 107, 0.4)'
+  }}
+/>
+
+// Ocean gradient
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
+    border: 'none',
+    boxShadow: '0 4px 20px rgba(102, 126, 234, 0.5)'
+  }}
+/>
+```
+
+### Glassmorphism Effect
+
+Modern glassmorphism styling:
+
+```tsx
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: 'rgba(255, 255, 255, 0.1)',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    boxShadow: '0 8px 32px rgba(31, 38, 135, 0.37)'
+  }}
+  dropdownStyle={{
+    background: 'rgba(255, 255, 255, 0.95)',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    boxShadow: '0 8px 32px rgba(31, 38, 135, 0.37)'
+  }}
+/>
+```
+
+### Neumorphism Effect
+
+Soft, modern neumorphism design:
+
+```tsx
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: '#e0e5ec',
+    boxShadow: '8px 8px 16px #a3b1c6, -8px -8px 16px #ffffff',
+    border: 'none',
+    borderRadius: '50%'
+  }}
+  dropdownStyle={{
+    background: '#e0e5ec',
+    boxShadow: '8px 8px 16px #a3b1c6, -8px -8px 16px #ffffff',
+    border: 'none'
+  }}
+/>
+```
+
+## 🎭 Animation and Transitions
+
+### Smooth Transitions
+
+Add smooth animations to your component:
+
+```tsx
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: '#007bff',
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+    transform: 'scale(1)'
+  }}
+  optionStyle={{
+    transition: 'all 0.2s ease'
+  }}
+  optionHoverStyle={{
+    background: '#e3f2fd',
+    transform: 'translateX(8px) scale(1.02)',
+    boxShadow: '0 4px 12px rgba(0, 123, 255, 0.3)'
+  }}
+/>
+```
+
+### Hover Effects
+
+Create engaging hover interactions:
+
+```tsx
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: '#007bff',
+    transition: 'all 0.3s ease',
+    transform: 'scale(1)'
+  }}
+  optionHoverStyle={{
+    background: '#e3f2fd',
+    transform: 'translateX(8px)',
+    boxShadow: '0 4px 12px rgba(0, 123, 255, 0.2)',
+    borderLeft: '4px solid #007bff'
+  }}
+/>
+```
+
+## 📱 Responsive Design
+
+### Mobile-First Styling
+
+Optimize for mobile devices:
+
+```tsx
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  size="48px"
+  dropdownStyle={{
+    position: 'fixed',
+    bottom: '80px',
+    left: '20px',
+    right: '20px',
+    background: '#ffffff',
+    borderRadius: '16px',
+    boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+    zIndex: 1000,
+    maxHeight: '60vh',
+    overflowY: 'auto'
+  }}
+  optionStyle={{
+    padding: '16px 20px',
+    fontSize: '16px',
+    borderBottom: '1px solid #f0f0f0'
+  }}
+  optionHoverStyle={{
+    background: '#f8f9fa'
+  }}
+/>
+```
+
+### Tablet and Desktop
+
+Different styles for larger screens:
+
+```tsx
+const isMobile = window.innerWidth < 768;
+
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  size={isMobile ? "48px" : "52px"}
+  dropdownStyle={{
+    position: isMobile ? 'fixed' : 'absolute',
+    bottom: isMobile ? '80px' : 'auto',
+    left: isMobile ? '20px' : 'auto',
+    right: isMobile ? '20px' : 'auto',
+    background: '#ffffff',
+    borderRadius: isMobile ? '16px' : '8px',
+    boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+    zIndex: 1000
+  }}
+/>
+```
+
+## 🎨 Custom Prompt Options
+
+### Branded Prompts
+
+Create prompts that match your brand:
+
+```tsx
+const brandedPrompts = [
+  {
+    prompt: 'Make it sound like our brand voice',
+    label: '🎯 Brand Voice',
+    tone: 'consistent',
+    style: 'branded'
+  },
+  {
+    prompt: 'Optimize for our target audience',
+    label: '👥 Audience Fit',
+    tone: 'engaging',
+    style: 'targeted'
+  },
+  {
+    prompt: 'Add our company keywords',
+    label: '🔑 SEO Optimized',
+    tone: 'informative',
+    style: 'searchable'
+  }
+];
+
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  promptOptions={brandedPrompts}
+  dropdownStyle={{
+    background: '#1a1a1a',
+    color: '#ffffff',
+    border: '2px solid #007bff'
+  }}
+  optionStyle={{
+    borderBottom: '1px solid #333'
+  }}
+  optionHoverStyle={{
+    background: '#007bff',
+    color: '#ffffff'
+  }}
+/>
+```
+
+### Industry-Specific Prompts
+
+Tailor prompts for specific industries:
+
+```tsx
+// E-commerce prompts
+const ecommercePrompts = [
+  { prompt: 'Make it persuasive for sales', label: '💰 Sales Copy' },
+  { prompt: 'Add product benefits', label: '✨ Benefits' },
+  { prompt: 'Include call-to-action', label: '🎯 CTA' },
+  { prompt: 'Make it urgent', label: '⏰ Urgency' }
+];
+
+// Academic prompts
+const academicPrompts = [
+  { prompt: 'Make it more scholarly', label: '📚 Academic' },
+  { prompt: 'Add citations format', label: '📖 Citations' },
+  { prompt: 'Make it objective', label: '🔬 Objective' },
+  { prompt: 'Use formal language', label: '📝 Formal' }
+];
+
+// Marketing prompts
+const marketingPrompts = [
+  { prompt: 'Make it viral', label: '🔥 Viral' },
+  { prompt: 'Add emotional appeal', label: '💝 Emotional' },
+  { prompt: 'Include social proof', label: '👥 Social Proof' },
+  { prompt: 'Make it shareable', label: '📤 Shareable' }
+];
+```
+
+## 🎨 CSS Custom Properties
+
+### Using CSS Variables
+
+Leverage CSS custom properties for consistent theming:
+
+```tsx
+// Define CSS variables in your CSS file
+:root {
+  --ai-primary: #007bff;
+  --ai-secondary: #6c757d;
+  --ai-success: #28a745;
+  --ai-danger: #dc3545;
+  --ai-warning: #ffc107;
+  --ai-info: #17a2b8;
+  --ai-light: #f8f9fa;
+  --ai-dark: #343a40;
+}
+
+// Use them in your component
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: 'var(--ai-primary)',
+    color: 'white'
+  }}
+  dropdownStyle={{
+    background: 'var(--ai-light)',
+    border: `1px solid var(--ai-primary)`
+  }}
+  optionHoverStyle={{
+    background: 'var(--ai-primary)',
+    color: 'white'
+  }}
+/>
+```
+
+## 🔧 Advanced Customization
+
+### Custom Icons
+
+Replace the default AI icon with custom ones:
+
+```tsx
+// You can customize the button content using CSS
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  buttonStyle={{
+    background: '#007bff',
+    color: 'white',
+    fontSize: '18px',
+    fontWeight: 'bold'
+  }}
+/>
+
+// Add custom CSS to replace the icon
+// .ai-button::before { content: "🤖"; }
+// .ai-button::before { content: "✨"; }
+// .ai-button::before { content: "🚀"; }
+```
+
+### Conditional Styling
+
+Apply different styles based on conditions:
+
+```tsx
+const [isDarkMode, setIsDarkMode] = useState(false);
+const [isPremium, setIsPremium] = useState(false);
+
+<AIDropDown 
+  text={text} 
+  aiResponseCallback={handleAIResponse}
+  size={isPremium ? "52px" : "48px"}
+  buttonStyle={{
+    background: isDarkMode ? '#ffffff' : '#007bff',
+    color: isDarkMode ? '#000000' : '#ffffff',
+    boxShadow: isPremium ? '0 8px 25px rgba(0,0,0,0.3)' : '0 4px 12px rgba(0,0,0,0.2)'
+  }}
+  dropdownStyle={{
+    background: isDarkMode ? '#1a1a1a' : '#ffffff',
+    color: isDarkMode ? '#ffffff' : '#000000',
+    border: `1px solid ${isDarkMode ? '#333' : '#dee2e6'}`
+  }}
+/>
+```
+
+## 🎯 Best Practices
+
+### Consistency
+
+- Use consistent color schemes across your application
+- Maintain consistent spacing and sizing
+- Follow your design system's guidelines
+
+### Accessibility
+
+- Ensure sufficient color contrast
+- Provide clear visual feedback on interactions
+- Support keyboard navigation
+
+### Performance
+
+- Avoid complex animations on mobile devices
+- Use CSS transforms instead of changing layout properties
+- Minimize repaints and reflows
+
+## 📚 Next Steps
+
+- Check out the [Examples](/docs/examples) for more customization ideas
+- Explore the [API Reference](/docs/api) for all available props
+- Visit the [GitHub Repository](https://github.com/rajanlagah/prompt-my-client-react) for source code
