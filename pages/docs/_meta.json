@@ -1,9 +1,5 @@
 {
   "index": "Welcome",
   "installation": "Installation",
-  "api": "API Reference",
-  "examples": "Examples",
-  "customization": "Customization",
-  "demos": "Interactive Demos",
-  "faq": "FAQ"
+  "api": "API Reference"
 }

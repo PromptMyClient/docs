@@ -1,16 +1,14 @@
-# Getting Started
+# Installation
 
-This guide will help you get up and running with Prompt My Client React in your project.
+Get started with Prompt My Client React in your project.
 
 ## 📋 Prerequisites
 
-Before you begin, make sure you have:
-
 - Node.js 16.8 or later
-- A React project (version 18 or higher)
-- npm, yarn, or pnpm package manager
+- React 18 or higher
+- npm, yarn, or pnpm
 
-## 🚀 Installation
+## 🚀 Install
 
 ### Using npm
 
@@ -30,26 +28,49 @@ yarn add prompt-my-client-react
 pnpm add prompt-my-client-react
 ```
 
-## 🔧 Basic Setup
+## 🔧 Quick Start
 
-### 1. Import the Component
+### Option 1: Using the AIDropDown Component
 
 ```tsx
 import { AIDropDown } from 'prompt-my-client-react';
+
+function App() {
+  const [text, setText] = useState('');
+
+  const handleAIResponse = (response: string) => {
+    if (response) {
+      setText(response);
+    }
+  };
+
+  return (
+    <div>
+      <textarea 
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Type your text here..."
+      />
+      <AIDropDown 
+        text={text} 
+        aiResponseCallback={handleAIResponse} 
+      />
+    </div>
+  );
+}
 ```
 
-### 2. Add to Your Component
+### Option 2: Using the usePrompt Hook
 
 ```tsx
 import { usePrompt } from 'prompt-my-client-react';
 
 function App() {
-  const [input, setInput] = useState('');
+  const [text, setText] = useState('');
   
   const { generatePrompt, isLoading, error, result } = usePrompt({
     onSuccess: (response) => {
-      setInput(response);
-      console.log('AI Response:', response);
+      setText(response);
     },
     onError: (error) => {
       console.error('Error:', error);
@@ -57,172 +78,25 @@ function App() {
   });
 
   const handleGenerate = async () => {
-    await generatePrompt(
-      input,
-      "Make this text more professional and concise",
-      "professional",
-      "concise"
-    );
+    await generatePrompt(text, "Make this text more professional");
   };
 
   return (
     <div>
       <textarea 
-        value={input} 
-        onChange={(e) => setInput(e.target.value)}
+        value={text} 
+        onChange={(e) => setText(e.target.value)}
         placeholder="Type your text here..." 
       />
       <button onClick={handleGenerate} disabled={isLoading}>
         {isLoading ? 'Processing...' : 'Make Professional'}
       </button>
-      {error && <p>Error: {error}</p>}
-      {result && <p>Result: {result}</p>}
     </div>
   );
 }
 ```
-
-## 🎯 Complete Example
-
-Here's a complete working example with auto-resizing textarea:
-
-**Try it live:**
-
-<iframe 
-  src="https://codesandbox.io/embed/slt76x?view=preview&module=%2Fsrc%2FApp.js&hidenavigation=1"
-  style={{ width: '100%', height: '600px', border: 'none', borderRadius: '8px' }}
-  title="Getting Started Demo"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-/>
-
-```tsx
-import "./styles.css";
-import { useState } from "react";
-import { usePrompt } from "prompt-my-client-react";
-
-function ExampleWithHook() {
-  const [input, setInput] = useState("");
-
-  const { generatePrompt, isLoading, error, result } = usePrompt({
-    onSuccess: (response) => {
-      setInput(response);
-      console.log("AI Response:", response);
-    },
-    onError: (error) => {
-      console.error("Error:", error);
-    },
-  });
-
-  const handleGenerate = async () => {
-    await generatePrompt(
-      input,
-      "Make this text more professional and concise",
-      "professional",
-      "concise"
-    );
-  };
-
-  return (
-    <div
-      style={{
-        maxWidth: "500px",
-        margin: "20px auto",
-        padding: "20px",
-        border: "1px solid #ddd",
-        borderRadius: "8px",
-        backgroundColor: "#fafafa",
-      }}
-    >
-      <textarea
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Type your text here..."
-        style={{
-          width: "90%",
-          minHeight: "120px",
-          padding: "10px",
-          fontSize: "14px",
-          borderRadius: "6px",
-          border: "1px solid #ccc",
-          resize: "vertical",
-          marginBottom: "10px",
-        }}
-      />
-      <button
-        onClick={handleGenerate}
-        disabled={isLoading}
-        style={{
-          padding: "10px 16px",
-          fontSize: "14px",
-          borderRadius: "6px",
-          border: "none",
-          cursor: isLoading ? "not-allowed" : "pointer",
-          backgroundColor: isLoading ? "#bbb" : "#007bff",
-          color: "#fff",
-          transition: "background-color 0.2s",
-        }}
-      >
-        {isLoading ? "Processing..." : "Make Professional"}
-      </button>
-      {error && (
-        <p style={{ color: "red", marginTop: "10px" }}>Error: {error}</p>
-      )}
-      {result && (
-        <p style={{ marginTop: "10px", fontWeight: "bold" }}>
-          Result: {result}
-        </p>
-      )}
-    </div>
-  );
-}
-
-export default function App() {
-  return (
-    <div className="App" style={{ padding: "0 4rem" }}>
-      <ExampleWithHook />
-    </div>
-  );
-}
-```
-
-## 🔍 What Happens Next?
-
-1. **User Types Text**: The user enters text in the textarea
-2. **AI Button Appears**: The AI dropdown button is positioned next to the text
-3. **User Clicks AI Button**: A dropdown menu appears with various text transformation options
-4. **AI Processes Request**: The selected prompt is sent to the AI service
-5. **Response Received**: The transformed text is returned via the callback function
-6. **UI Updates**: The textarea is automatically updated with the new content
-
-## 🎨 Customization
-
-The component is highly customizable. You can:
-
-- Change the button size
-- Customize colors and styles
-- Add your own prompt options
-- Modify the dropdown appearance
-
-See the [Customization](/docs/customization) guide for detailed examples.
-
-## 🚨 Common Issues
-
-### Component Not Rendering
-
-- Make sure you've imported the component correctly
-- Check that your React version is 18 or higher
-- Verify the package was installed successfully
-
-### AI Responses Not Working
-
-- Ensure the `text` prop contains the text you want to transform
-- Check that the `aiResponseCallback` function is properly defined
-- Verify your internet connection for AI service access
 
 ## 📚 Next Steps
 
-- Learn about [Props and Configuration](/docs/api)
-- Explore [Customization Options](/docs/customization)
-- Check out [Examples](/docs/examples)
-- Read the [API Reference](/docs/api)
+- Check out the [Demos](/demos) for more usage patterns
+- Read the [API Reference](/docs/api) for complete documentation
