@@ -64,7 +64,7 @@ npm start
 ## 🔗 Links
 
 - [NPM Package](https://www.npmjs.com/package/prompt-my-client-react)
-- [GitHub Repository](https://github.com/rajanlagah/prompt-my-client-react)
+- [GitHub Repository](https://github.com/PromptMyClient/prompt-my-client-react)
 - [Documentation Site](https://your-docs-domain.com) (deploy this site)
 
 ## 📄 License

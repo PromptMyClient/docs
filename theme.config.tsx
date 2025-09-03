@@ -3,9 +3,9 @@ import { DocsThemeConfig } from 'nextra-theme-docs'
 const config: DocsThemeConfig = {
   logo: <span style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>Prompt My Client React</span>,
   project: {
-    link: 'https://github.com/rajanlagah/prompt-my-client-react',
+    link: 'https://github.com/PromptMyClient/prompt-my-client-react',
   },
-  docsRepositoryBase: 'https://github.com/rajanlagah/prompt-my-client-react',
+  docsRepositoryBase: 'https://github.com/PromptMyClient/prompt-my-client-react',
   footer: {
     text: 'Prompt My Client React - AI-Powered Text Enhancement for React',
   },
